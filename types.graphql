@@ -1,0 +1,10 @@
+scalar BigDecimal
+scalar Bytes
+scalar BigInt
+
+"Marks the GraphQL type as indexable entity.  Each type that should be an entity is required to be annotated with this directive."
+directive @entity(immutable: Boolean) on OBJECT
+
+"creates a virtual field on the entity that may be queried but cannot be set manually through the mappings API."
+directive @derivedFrom(field: String!) on FIELD_DEFINITION
+

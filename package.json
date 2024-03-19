@@ -2,9 +2,10 @@
   "name": "ethereum-blocks",
   "license": "UNLICENSED",
   "scripts": {
-    "codegen": "graph codegen",
+    "codegen": "node cli/codegen.mjs",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ethereum-blocks",
+    "deploy": "node cli/deploy.mjs",
+    "clean": "node cli/clean.mjs",
     "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
@@ -14,8 +15,10 @@
     "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
     "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks"
   },
-  "dependencies": {
-    "@graphprotocol/graph-cli": "^0.17.1",
-    "@graphprotocol/graph-ts": "0.17.0"
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.69.0",
+    "@graphprotocol/graph-ts": "0.34.0",
+    "dotenv": "^16.4.5",
+    "handlebars": "^4.7.8"
   }
 }

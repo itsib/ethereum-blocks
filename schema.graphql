@@ -1,16 +1,12 @@
 type Block @entity {
+  "Block hash"
   id: ID!
+  "Block number"
   number: BigInt!
+  "Mining timestamp"
   timestamp: BigInt!
-  parentHash: String
-  author: String
-  difficulty: BigInt
-  totalDifficulty: BigInt
+  "Gas used in WEI"
   gasUsed: BigInt
+  "Gas limit in WEI"
   gasLimit: BigInt
-  receiptsRoot: String
-  transactionsRoot: String
-  stateRoot: String
-  size: BigInt
-  unclesHash: String
 }

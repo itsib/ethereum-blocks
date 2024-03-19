@@ -35,12 +35,9 @@ bower_components
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# IDE
+.idea/
+.vscode/
 
 # misc
 .sass-cache
@@ -91,3 +88,7 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Exclude generated files
+subgraph.yaml
+src/types
