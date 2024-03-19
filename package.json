@@ -1,24 +1,18 @@
 {
   "name": "ethereum-blocks",
-  "license": "UNLICENSED",
+  "description": "Indexing all Ethereum Block data",
+  "repository": "https://github.com/itsib/ethereum-blocks",
+  "version": "0.0.1",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "codegen": "node cli/codegen.mjs",
     "build": "graph build",
     "deploy": "node cli/deploy.mjs",
-    "clean": "node cli/clean.mjs",
-    "create-local": "graph create --node http://localhost:8020/ blocklytics/ethereum-blocks",
-    "remove-local": "graph remove --node http://localhost:8020/ blocklytics/ethereum-blocks",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 blocklytics/ethereum-blocks",
-    "deploy-rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/rinkeby-blocks",
-    "deploy-kovan": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/kovan-blocks",
-    "deploy-goerli": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/goerli-blocks",
-    "deploy-ropsten": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/ropsten-blocks",
-    "deploy-poa": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ blocklytics/poa-core-blocks"
+    "clean": "node cli/clean.mjs"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "0.69.0",
     "@graphprotocol/graph-ts": "0.34.0",
-    "dotenv": "^16.4.5",
     "handlebars": "^4.7.8"
   }
 }

@@ -21,7 +21,13 @@ function createSubgraphYaml() {
   console.log(`\x1b[2;37m  Compile manifest ${filename} › subgraph.yaml\x1b[0m`);
 
   const templateContent = fs.readFileSync(templateFile, 'utf-8');
-  const outputContent = handlebars.compile(templateContent)({ network: NETWORK.cliName });
+  const packageJson = JSON.parse(fs.readFileSync(path.resolve(PJ_ROOT, 'package.json'), 'utf-8'));
+
+  const outputContent = handlebars.compile(templateContent)({
+    network: NETWORK.cliName,
+    description: packageJson.description,
+    repository: packageJson.repository,
+  });
   const outputFilePath = path.resolve(PJ_ROOT, 'subgraph.yaml');
 
   fs.writeFileSync(outputFilePath, outputContent);
@@ -31,4 +37,4 @@ function createSubgraphYaml() {
 
 createSubgraphYaml();
 
-spawnSync('node', ['node_modules/.bin/graph', 'codegen', '--output-dir', 'src/types/'], { stdio: 'inherit' });
+spawnSync('node', ['node_modules/.bin/graph', 'codegen', '--output-dir', 'src/types/'], { stdio: 'inherit', cwd: process.cwd() });

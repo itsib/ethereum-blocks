@@ -15,3 +15,31 @@ export function getChiaId(defaultChainId) {
   }
   throw new Error('Missing required parameter --chain-id, -c');
 }
+
+/**
+ * Parse args and find --name or -n
+ * @returns {string}
+ */
+export function getSubgraphName() {
+  const index = process.argv.findIndex(arg => arg === '--name' || arg === '-n');
+  const name = index !== -1 ? process.argv[index + 1] : undefined;
+
+  if (name) {
+    return name;
+  }
+  throw new Error('Missing required parameter --name, -n');
+}
+
+/**
+ * Parse args and find --token or -t
+ * @returns {string}
+ */
+export function getAccessToken() {
+  const index = process.argv.findIndex(arg => arg === '--token' || arg === '-t');
+  const token = index !== -1 ? process.argv[index + 1] : undefined;
+
+  if (token) {
+    return token;
+  }
+  throw new Error('Missing required parameter --token, -t');
+}
