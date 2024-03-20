@@ -43,3 +43,17 @@ export function getAccessToken() {
   }
   throw new Error('Missing required parameter --token, -t');
 }
+
+/**
+ * Parse args and find --version or -v
+ * @returns {string}
+ */
+export function getVersion(defaultVersion = 'v0.0.1') {
+  const index = process.argv.findIndex(arg => arg === '--version' || arg === '-v');
+  const versionLabel = index !== -1 ? process.argv[index + 1] : undefined;
+
+  if (versionLabel) {
+    return versionLabel;
+  }
+  return defaultVersion;
+}
