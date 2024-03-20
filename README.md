@@ -48,6 +48,14 @@ npm run deploy -- -n <subgraph-name> -t 5ec79a32a3d2cdc497eddfdcdac5ad44
 
 Token ```5ec79a32a3d2cdc497eddfdcdac5ad44``` is example, you need insert your access token for hosted service or studio.
 
+----
+
+`--name`: Subgraph name. Hosted service should contain '/'.
+
+`--token`: Access token.
+
+`--version`: Version label for studio project. Default `v0.0.1`
+
 ### Clean
 
 You can delete all generated files with the command:
